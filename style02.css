@@ -1,0 +1,31 @@
+.photogroup{
+	height:auto;
+	width:160px;
+}
+
+.photo{
+  	height: auto;
+  	width: auto;
+  	float: left;
+  	text-align: center;
+}
+
+.photo img{
+  	display: inline;
+  	margin-left: 5px;
+	margin-top:5px;
+  	border: 1px solid #000000;
+  	height: 120px;
+  	width:  160px;
+}
+.photo a:hover img{
+	border: 1px solid #FFFFFF;
+}
+
+.discription{
+	float:left;
+	margin:40px 10px 10px 10px;
+	width:90%;
+	height:50px;
+	overflow:visible;
+}
