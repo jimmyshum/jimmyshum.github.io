@@ -103,16 +103,12 @@ Jimmy Shum's Personal Website
 <script type="text/javascript">
 var txtFile = new XMLHttpRequest();
 txtFile.open("GET", "/blog/2014/07-13.txt", true);
-txtFile.send();
 
-var allText = txtFile.responseText;
-document.write(allText);
-//alert(allText);
-/*
+
 txtFile.onreadystatechange = function() {
   if (txtFile.readyState === 4)   // Makes sure the document is ready to parse.
   {
-    if (txtFile.status === 200)   // Makes sure it's found the file.
+    if (txtFile.status === 200 || txtFile.status == 0)   // Makes sure it's found the file.
     {
       var allText = txtFile.responseText;
       alert(allText);
@@ -120,8 +116,9 @@ txtFile.onreadystatechange = function() {
     }
   }
 }
-alert("!");
-*/
+txtFile.send(null);
+
+
 </script>
 
 </div></div>
