@@ -9,8 +9,9 @@ function readCatalog(file){
 			}
 	
 		}
-		catFile.send(null);
+		
 	}
+	catFile.send(null);
 
 }
 
@@ -26,6 +27,7 @@ function readBlogTxt(file){
 			}
 	
 		}
-		txtFile.send(null);
+		
 	}
+	txtFile.send(null);
 }
