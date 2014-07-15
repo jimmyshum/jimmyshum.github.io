@@ -106,13 +106,38 @@ Jimmy Shum's Personal Website
 </div>
 </body>
 <script type="text/javascript">
+var cat;
+readCatalog("/blog/catalog.txt",
+    function (result){
+  // this function will be called if the xmlhttprequest received a result
+    cat = result;
+    
+    }, 
 
-var cat = readCatalog("/blog/catalog.txt");
+    function() {
+      // this function will be called if xhr failed
+    cat = "No results.";
+
+});
 alert(cat)
 //var day = cat.split("\n");
 //alert(day);
 
-var txt = readBlogTxt("/blog/2014/07-13.txt");
+var txt;
+readBlogTxt("/blog/2014/07-13.txt",
+    
+    function (result){
+  // this function will be called if the xmlhttprequest received a result
+    txt = result;
+    
+    }, 
+
+    function() {
+      // this function will be called if xhr failed
+    txt = "No results.";
+    
+});
+
 alert(txt);
 document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
     
