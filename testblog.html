@@ -106,7 +106,8 @@ txtFile.open("GET", "/blog/2014/07-13.txt", true);
 txtFile.send();
 
 var allText = txtFile.responseText;
-alert(allText);
+document.write(allText);
+//alert(allText);
 /*
 txtFile.onreadystatechange = function() {
   if (txtFile.readyState === 4)   // Makes sure the document is ready to parse.
