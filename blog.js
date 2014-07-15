@@ -5,7 +5,7 @@ function readCatalog(file,onComplete,onError){
 		if (catFile.readyState === 4){   // Makes sure the document is ready to parse.
     		if (catFile.status === 200 || catFile.status == 0) {  // Makes sure it's found the file.
 				var catText = catFile.responseText;
-				alert("! " + allText);
+				alert("! " + catText);
 				onComplete(catText);
 				
 			}
