@@ -59,10 +59,9 @@ table{
 	font-weight:bold;
 	font-size:16px;
 	
-}
-
-        
+}        
 </style>
+
 </head>
 
 <body>
@@ -99,10 +98,17 @@ Jimmy Shum's Personal Website
 </div>
 <div class="column">
 <div id="main">
+<div id="blog">
+</div>
 
+
+</div></div>
+</div>
+</body>
 <script type="text/javascript">
+function readBlogTxt(file){
 var txtFile = new XMLHttpRequest();
-txtFile.open("GET", "/blog/2014/07-13.txt", true);
+txtFile.open("GET",file, true);
 
 
 txtFile.onreadystatechange = function() {
@@ -112,16 +118,14 @@ txtFile.onreadystatechange = function() {
     {
       var allText = txtFile.responseText;
       alert(allText);
-      docuement.write(allText);
+      document.getElementById("blog").innerHTML = "<p>" + allText + "</p";
     }
   }
 }
 txtFile.send(null);
+}
 
+readBlogTxt("/blog/2014/07-13.txt");
 
 </script>
-
-</div></div>
-</div>
-</body>
 </html>
