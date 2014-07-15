@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style01.css" />
+<title>Jimmy Shum's Personal Website</title>
+<style type="text/css">
+h3{
+  color:#FFC;
+  text-align:left;
+  font-size:22px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+h2{
+  font-family:"Comic Sans MS", cursive;
+  font-size:36px;
+  text-align:center;
+  color:#D1D0B6;
+} 
+#main p{
+  font-family:Arial, Helvetica, sans-serif;
+  color:#FFFF99;
+  font-size:14px;
+}
+table{
+	width:650px;
+}
+
+.blogText{
+  font-family:Arial, Helvetica, sans-serif;
+  color:#FFFF99;
+}
+
+.blogTextGrey{
+  font-family:Arial, Helvetica, sans-serif;
+  color:#999;
+}
+#HCB_comment_box textarea {
+  height:2em;
+}
+#HCB_comment_box blockquote {
+  color:#FFFFFF;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#HCB_comment_box {
+  color:#FFFFFF;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#HCB_comment_box .text{
+  color:#CCCCCC;
+}
+#main{
+  text-align:left;
+  width:680px;
+  height:auto;
+}
+.target{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFE;
+	font-weight:bold;
+	font-size:16px;
+	
+}
+
+        
+</style>
+</head>
+
+<body>
+<div class="row">
+<div id="up">
+<h1>
+Jimmy Shum's Personal Website
+</h1>
+</div>
+</div>
+<div class="row">
+<div id="navigationbar">
+<ul>
+<li><a href="/index.html">Home</a></li>
+<li><a href="#">Myself</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="#">Target</a></li>
+<li><a href="/photo.html">Photo</a></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="column">
+<div id="intro">
+<img src="icon.png"/>
+<p>Name: <b>Jimmy Shum</b></p>
+<p>Age: <b>22</b></p>
+<p>Gender: <b>Male</b></p>
+<p>Studying: <b>Computer Science</b></p>
+<p>Interest: <b>Programming, Music</b></p>
+<p>From: <b>Hong Kong</b></p>
+<p></p>
+</div>
+</div>
+<div class="column">
+<div id="main">
+
+<script type="text/javascript">
+var txtFile = new XMLHttpRequest();
+txtFile.open("GET", "/blog/2014/07-13.txt", true);
+txtFile.onreadystatechange = function() {
+  if (txtFile.readyState === 4)   // Makes sure the document is ready to parse.
+  {
+    if (txtFile.status === 200)   // Makes sure it's found the file.
+    {
+      var allText = txtFile.responseText;
+      alert(allText);
+
+    }
+  }
+}
+</script>
+
+</div></div>
+</div>
+</body>
+</html>
