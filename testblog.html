@@ -61,7 +61,7 @@ table{
 	
 }        
 </style>
-
+<script src="blog.js"></script>
 </head>
 
 <body>
@@ -106,26 +106,13 @@ Jimmy Shum's Personal Website
 </div>
 </body>
 <script type="text/javascript">
-function readBlogTxt(file){
-var txtFile = new XMLHttpRequest();
-txtFile.open("GET",file, true);
 
-
-txtFile.onreadystatechange = function() {
-  if (txtFile.readyState === 4)   // Makes sure the document is ready to parse.
-  {
-    if (txtFile.status === 200 || txtFile.status == 0)   // Makes sure it's found the file.
-    {
-      var allText = txtFile.responseText;
-      alert(allText);
-      document.getElementById("blog").innerHTML = "<p>" + allText + "</p";
-    }
-  }
-}
-txtFile.send(null);
-}
+var cat = readCatalog("/blog/catalog.txt");
+var day = cat.split("\n");
+alert(day);
 
 readBlogTxt("/blog/2014/07-13.txt");
+
 
 </script>
 </html>
