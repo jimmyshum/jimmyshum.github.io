@@ -117,6 +117,7 @@ readCatalog("/blog/catalog.txt",
     function() {
       // this function will be called if xhr failed
     cat = "No results.";
+    alert(cat)
 
 });
 
@@ -129,7 +130,7 @@ readBlogTxt("/blog/2014/07-13.txt",
     function (result){
   // this function will be called if the xmlhttprequest received a result
     txt = result;
-    alert(txt);
+    document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
     }, 
 
     function() {
@@ -139,7 +140,7 @@ readBlogTxt("/blog/2014/07-13.txt",
 });
 
 
-document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
+
     
 
 </script>
