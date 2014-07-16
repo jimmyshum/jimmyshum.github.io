@@ -121,12 +121,15 @@ readCatalog("/blog/catalog.txt",
         var year = dateArr[0];
         var month = dateArr[1];
         var day = dateArr[2];
+
+        alert(year + " " + month + " " + day);
+
         readBlogTxt("/blog/"+year+"/"+month+"-"+day+".txt",
 
         function(result2){  
           txt = result2;
           alert(txt);
-          //document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
+          document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
         }, 
 
         function() {
@@ -150,7 +153,7 @@ readCatalog("/blog/catalog.txt",
 
 //var day = cat.split("\n");
 //alert(day);
-
+/*
 var txt;
 readBlogTxt("/blog/2014/07-13.txt",
     
@@ -168,7 +171,7 @@ readBlogTxt("/blog/2014/07-13.txt",
 );
 
 
-
+*/
     
 
 </script>
