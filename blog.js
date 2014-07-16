@@ -5,7 +5,7 @@ function readCatalog(file,onComplete,onError){
 		if (catFile.readyState === 4){   // Makes sure the document is ready to parse.
     		if (catFile.status === 200 || catFile.status == 0) {  // Makes sure it's found the file.
 				var catText = catFile.responseText;
-				alert("! " + catText);
+				//alert("! " + catText);
 				onComplete(catText);
 				
 			}
@@ -26,7 +26,7 @@ function readBlogTxt(file,onComplete,onError){
 		if (txtFile.readyState === 4){   // Makes sure the document is ready to parse.
     		if (txtFile.status === 200 || txtFile.status == 0) {  // Makes sure it's found the file.
 				var allText = txtFile.responseText;
-				alert("! " + allText);
+				//alert("! " + allText);
 				onComplete(allText);
 			}
 			else

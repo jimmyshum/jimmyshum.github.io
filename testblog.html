@@ -112,16 +112,16 @@ readCatalog("/blog/catalog.txt",
     function (result){
   // this function will be called if the xmlhttprequest received a result
       cat = result;
-      alert(cat)
     }, 
 
     function() {
       // this function will be called if xhr failed
     cat = "No results.";
-    alert(cat)
-
+   
     }
+
 );
+alert(cat);
 
 //var day = cat.split("\n");
 //alert(day);
