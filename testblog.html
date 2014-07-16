@@ -112,6 +112,10 @@ readCatalog("/blog/catalog.txt",
     function (result){
   // this function will be called if the xmlhttprequest received a result
       cat = result;
+      //then use the catalog to read the blog txt
+      var blogDate = cat.split("\n");
+      alert(blogDate);
+
     }, 
 
     function() {
@@ -121,7 +125,6 @@ readCatalog("/blog/catalog.txt",
     }
 
 );
-alert(cat);
 
 //var day = cat.split("\n");
 //alert(day);
