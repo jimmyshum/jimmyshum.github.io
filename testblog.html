@@ -113,8 +113,29 @@ readCatalog("/blog/catalog.txt",
   // this function will be called if the xmlhttprequest received a result
       cat = result;
       //then use the catalog to read the blog txt
-      var blogDate = cat.split("\n");
-      alert(blogDate);
+      var blogDateArr = cat.split("\n");
+      alert(blogDateArr);
+      for(var i=0;i<blogDateArr.length;i++){
+        var dateArr = blogDateArr[i].split("-");
+        var year = dateArr[0];
+        var month = dateArr[1];
+        var day = dateArr[2];
+        readBlogTxt("/blog/"+year+"/"+month+"-"+day+".txt",
+
+        function(result2){  
+          txt = result2;
+          alert(txt);
+          //document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
+        }, 
+
+        function() {
+        // this function will be called if xhr failed
+        txt = "No results.";
+    
+        });
+
+      }
+
 
     }, 
 
