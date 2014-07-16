@@ -115,6 +115,7 @@ readCatalog("/blog/catalog.txt",
       //then use the catalog to read the blog txt
       var blogDateArr = cat.split("\n");
       alert(blogDateArr);
+      alert(blogDateArr.length);
       for(var i=0;i<blogDateArr.length;i++){
         var dateArr = blogDateArr[i].split("-");
         var year = dateArr[0];
