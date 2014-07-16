@@ -129,7 +129,7 @@ readCatalog("/blog/catalog.txt",
         function(result2){  
           txt = result2;
           alert(txt);
-          document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
+          document.getElementById("blog").innerHTML += "<p>" + txt + "</p>";
         }, 
 
         function() {
