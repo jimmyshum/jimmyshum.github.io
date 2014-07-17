@@ -140,9 +140,10 @@ app.factory('myService', function($q, $http) {
 
             $q.all(promises).then(function(datas) {
                 deferred.resolve(datas);
+                return deferred.promise;
             });
         }
-        return deferred.promise;
+       
     }
     
   }
