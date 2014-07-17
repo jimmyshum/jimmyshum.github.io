@@ -64,8 +64,8 @@ table{
 </style>
 <script src="blog.js"></script>
 <script src="jquery.1.6.4.js"></script>
-<script src="angular.min.js"></script>
 <script src="angular-sanitize.min.js"></script>
+<script src="angular.min.js"></script>
 </head>
 
 <body>
@@ -114,13 +114,12 @@ Jimmy Shum's Personal Website
 <script type="text/javascript">
 var app = angular.module('myApp', ['ngSanitize']);
 
-app.controller('myCtrl', function($scope,$sce,myService) {
+app.controller('myCtrl', ['$scope', '$sce', function($scope,$sce,myService) {
   myService.get().then(function(datas) {
-    $scope.blog = function (datas) {
-        return $sce.trustAsHtml(datas);
+    $scope.blog = $sce.trustAsHtml(datas);
     };
   });
-});
+}]);
 
 app.factory('myService', function($q, $http) {
   var myService = {
@@ -180,12 +179,6 @@ app.factory('myService', function($q, $http) {
   }
   return myService;
 });
-
-
-
-
-
-
 
 </script>
 </html>
