@@ -62,6 +62,8 @@ table{
 }        
 </style>
 <script src="blog.js"></script>
+<script src="jquery.1.6.4.js"></script>
+<script src="angular.min.js"></script>
 </head>
 
 <body>
@@ -105,74 +107,53 @@ Jimmy Shum's Personal Website
 </div></div>
 </div>
 </body>
+
+
 <script type="text/javascript">
+function readBlogTxt(curr,total,blogDateArr,defs){
+    var dateArr,year,month,day;
+    if(curr < total){
+       dateArr = blogDateArr[i].split("-");
+       year = dateArr[0];
+       month = dateArr[1];
+       day = dateArr[2];
+       $http.get('/blog/'+year+'/'month+'-'+day+'.txt').then(function(result) {
+         alert(result);
+         defs[i].resolve(result.data);
+         readCatalog(++i, length, blogDateArr);
+      })
+
+    }
+
+}
+
 var cat;
-
-readCatalog("/blog/catalog.txt",
-    function (result){
-  // this function will be called if the xmlhttprequest received a result
+function readCatalog(){
+  $http.get('/blog/catalog/txt')
+    .then(function(result){
       cat = result;
-      //then use the catalog to read the blog txt
       var blogDateArr = cat.split("\n");
-      alert(blogDateArr);
-      alert(blogDateArr.length);
-      for(var i=0;i<blogDateArr.length;i++){
-        var dateArr = blogDateArr[i].split("-");
-        var year = dateArr[0];
-        var month = dateArr[1];
-        var day = dateArr[2];
 
-        alert(year + " " + month + " " + day);
+      var deferred = $q.defer();
+      var defs = [];
+      var promises = [];
 
-        readBlogTxt("/blog/"+year+"/"+month+"-"+day+".txt",
-
-        function(result2){  
-          txt = result2;
-          alert(txt);
-          document.getElementById("blog").innerHTML += "<p>" + txt + "</p>";
-        }, 
-
-        function() {
-        // this function will be called if xhr failed
-        txt = "No results.";
-    
-        });
-
+      for(var i=0; i<length; i++) {
+        defs[i] = $q.defer();
+        promises[i] = defs[i].promise;
       }
 
+      readCatalog(0,blogDateArr.length,blogDateArr,defs);
 
-    }, 
+      $q.all(promises).then(function(datas) {
+          deferred.resolve(datas);
+      });
+      return deferred.promise;
+       
+  }
+}
 
-    function() {
-      // this function will be called if xhr failed
-    cat = "No results.";
-   
-    }
-
-);
-
-//var day = cat.split("\n");
-//alert(day);
-/*
-var txt;
-readBlogTxt("/blog/2014/07-13.txt",
-    
-    function (result){
-  // this function will be called if the xmlhttprequest received a result
-    txt = result;
-    document.getElementById("blog").innerHTML = "<p>" + txt + "</p>";
-    }, 
-
-    function() {
-      // this function will be called if xhr failed
-    txt = "No results.";
-    
-    }
-);
-
-
-*/
-    
+readCatalog();  
 
 </script>
 </html>
