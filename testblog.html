@@ -126,6 +126,8 @@ app.factory('myService', function($q, $http) {
         var deferred = $q.defer();
         $http.get('/blog/catalog.txt')
           .then(function(result){
+            alert(result);
+
             var cat = result;
             var blogDateArr = cat.split("\n");
             var defs = [];
