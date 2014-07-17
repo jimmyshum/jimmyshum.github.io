@@ -114,7 +114,9 @@ Jimmy Shum's Personal Website
 var app = angular.module('myApp',[]);
 
 app.controller('myCtrl',  function($scope,myService) {
+  $scope.blog = "123";
   myService.get().then(function(datas) {
+    console.log(datas);
     $scope.blog = datas;
   });
 });
