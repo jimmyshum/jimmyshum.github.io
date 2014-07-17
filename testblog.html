@@ -126,9 +126,9 @@ app.factory('myService', function($q, $http) {
         var deferred = $q.defer();
         $http.get('/blog/catalog.txt')
           .then(function(result){
-            alert(result);
+            console.log(result);
 
-            var cat = result;
+            var cat = result.data;
             var blogDateArr = cat.split("\n");
             var defs = [];
             var promises = [];
@@ -159,7 +159,7 @@ app.factory('myService', function($q, $http) {
        var blogText = '/blog/'+year+'/'+month+'-'+day+'.txt';
 
        $http.get(blogText).then(function(result) {
-         alert(result);
+         console.log(result);
          defs[i].resolve(result.data);
          readCatalog(++i, length, blogDateArr);
        });
