@@ -147,10 +147,7 @@ app.factory('myService', function($q, $http) {
     
     
   }
-  return myService;
-});
-
-function readBlogTxt(curr,total,blogDateArr,defs){
+  function readBlogTxt(curr,total,blogDateArr,defs){
     var dateArr,year,month,day;
     if(curr < total){
        dateArr = blogDateArr[i].split("-");
@@ -165,7 +162,11 @@ function readBlogTxt(curr,total,blogDateArr,defs){
 
     }
 
-}
+  }
+  return myService;
+});
+
+
 
 
 
