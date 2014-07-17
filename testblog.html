@@ -117,7 +117,6 @@ var app = angular.module('myApp', ['ngSanitize']);
 app.controller('myCtrl', function($scope, myService) {
   myService.get().then(function(datas) {
     $scope.blog = datas;
-    };
   });
 });
 
