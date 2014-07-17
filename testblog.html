@@ -122,7 +122,7 @@ app.controller('myCtrl', function($scope, myService) {
 
 app.factory('myService', function($q, $http) {
   var myService = {
-    get: function(){
+    get: function(){  
         var deferred = $q.defer();
         $http.get('/blog/catalog/txt')
           .then(function(result){
@@ -142,13 +142,13 @@ app.factory('myService', function($q, $http) {
                 deferred.resolve(datas);
                 return deferred.promise;
             });
-        }
-       
+          }
     }
+    
     
   }
   return myService;
-}
+});
 
 function readBlogTxt(curr,total,blogDateArr,defs){
     var dateArr,year,month,day;
