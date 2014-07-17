@@ -65,6 +65,7 @@ table{
 <script src="blog.js"></script>
 <script src="jquery.1.6.4.js"></script>
 <script src="angular.min.js"></script>
+<script src="angular-sanitize.min.js"></script>
 </head>
 
 <body>
@@ -111,7 +112,7 @@ Jimmy Shum's Personal Website
 
 
 <script type="text/javascript">
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngSanitize']);
 
 app.controller('myCtrl', function($scope, myService) {
   myService.get().then(function(datas) {
