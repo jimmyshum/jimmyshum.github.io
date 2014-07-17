@@ -124,7 +124,7 @@ app.factory('myService', function($q, $http) {
   var myService = {
     get: function(){  
         var deferred = $q.defer();
-        $http.get('/blog/catalog/txt')
+        $http.get('/blog/catalog.txt')
           .then(function(result){
             var cat = result;
             var blogDateArr = cat.split("\n");
