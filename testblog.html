@@ -161,7 +161,7 @@ app.factory('myService', function($q, $http) {
        $http.get(blogText).then(function(result) {
          console.log(result);
          defs[curr].resolve(result.data);
-         readCatalog(++curr, length, blogDateArr);
+         readBlogTxt(++curr,total, blogDateArr,defs);
        });
 
     }
