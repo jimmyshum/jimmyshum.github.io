@@ -161,7 +161,7 @@ function readBlogTxt(curr,total,blogDateArr,defs){
          alert(result);
          defs[i].resolve(result.data);
          readCatalog(++i, length, blogDateArr);
-      })
+       });
 
     }
 
