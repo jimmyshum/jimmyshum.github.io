@@ -1,4 +1,5 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style01.css" />
@@ -101,6 +102,7 @@ Jimmy Shum's Personal Website
 <div class="column">
 <div id="main">
 <div id="blog">
+<p ng-repeat="data in datas">{{data}}</p>
 </div>
 
 
@@ -110,6 +112,42 @@ Jimmy Shum's Personal Website
 
 
 <script type="text/javascript">
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope, myService) {
+  myService.get().then(function(datas) {
+    $scope.datas = datas;
+  })
+});
+
+app.factory('myService', function($q, $http) {
+  var myService = {
+    get: function(){
+        var deferred = $q.defer;
+        $http.get('/blog/catalog/txt')
+          .then(function(result){
+            var cat = result;
+            var blogDateArr = cat.split("\n");
+            var defs = [];
+            var promises = [];
+
+            for(var i=0; i<length; i++) {
+              defs[i] = $q.defer();
+              promises[i] = defs[i].promise;
+            }
+
+            readBlogTxt(0,blogDateArr.length,blogDateArr,defs);
+
+            $q.all(promises).then(function(datas) {
+                deferred.resolve(datas);
+            });
+        }
+        return deferred.promise;
+    }
+    
+  }
+}
+
 function readBlogTxt(curr,total,blogDateArr,defs){
     var dateArr,year,month,day;
     if(curr < total){
@@ -127,33 +165,9 @@ function readBlogTxt(curr,total,blogDateArr,defs){
 
 }
 
-var cat;
-function readCatalog(){
-  $http.get('/blog/catalog/txt')
-    .then(function(result){
-      cat = result;
-      var blogDateArr = cat.split("\n");
 
-      var deferred = $q.defer();
-      var defs = [];
-      var promises = [];
 
-      for(var i=0; i<length; i++) {
-        defs[i] = $q.defer();
-        promises[i] = defs[i].promise;
-      }
 
-      readBlogTxt(0,blogDateArr.length,blogDateArr,defs);
-
-      $q.all(promises).then(function(datas) {
-          deferred.resolve(datas);
-      });
-      return deferred.promise;
-       
-  }
-}
-
-readCatalog();  
 
 </script>
 </html>
