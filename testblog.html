@@ -115,7 +115,9 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope, myService) {
   myService.get().then(function(datas) {
-    $scope.blog = datas;
+    $scope.blog = function(datas){
+        return $sce.trustAsHtml(datas);
+    };
   });
 });
 
