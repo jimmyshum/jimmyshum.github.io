@@ -133,7 +133,7 @@ app.factory('myService', function($q, $http) {
             var defs = [];
             var promises = [];
 
-            for(var i=0; i<length; i++) {
+            for(var i=0; i<blogDateArr.length; i++) {
               defs[i] = $q.defer();
               promises[i] = defs[i].promise;
             }
