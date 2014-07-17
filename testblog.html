@@ -164,12 +164,23 @@ app.factory('myService', function($q, $http) {
          console.log(result);
 
          var lineArr = result.data.split('\n');
-         var line = "<h2>" + day + "-" + month + "-" + year + "</h2>" + "<br/><br/>";
 
+         //the format of the blog 
+
+         //the opening of fieldset 
+         var line = "<fieldset><legend><h3><b>";
+         line += "<h3><b>" + day + "-" + month + "-" + year + "</b></h3>";
+         line += "</strong></h3></legend>";
+
+         //the text
+         line += "<p class='blogText'>";
          for(var i=0;i<lineArr.length;i++){
             line += lineArr[i] + "<br/>" + '\n';
          }
-         line += "<br/><br/><br/>";
+         line += "</p>";
+
+         //the end of fieldset
+         line += "</fieldset>"
 
          defs[curr].resolve(line);
          readBlogTxt(++curr,total, blogDateArr,defs);
