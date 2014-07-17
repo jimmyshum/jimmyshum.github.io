@@ -64,8 +64,8 @@ table{
 </style>
 <script src="blog.js"></script>
 <script src="jquery.1.6.4.js"></script>
-<!--<script src="angular.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="angular.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>-->
 </head>
 
 <body>
@@ -102,7 +102,7 @@ Jimmy Shum's Personal Website
 </div>
 <div class="column">
 <div id="main">
-<div ng-bind-html-unsafe ="blog">
+<div ng-bind-html ="blog">
 </div>
 
 
@@ -114,11 +114,11 @@ Jimmy Shum's Personal Website
 <script type="text/javascript">
 var app = angular.module('myApp',[]);
 
-app.controller('myCtrl',  function($scope,myService) {
-  $scope.blog = "123";
+app.controller('myCtrl',  function($scope,$sce, myService) {
+  //$scope.blog = "123";
   myService.get().then(function(datas) {
     console.log(datas);
-    //$scope.blog = datas;
+    $scope.blog = $sce.trustAsHtml(datas);
   });
 });
 
