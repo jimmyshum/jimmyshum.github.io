@@ -152,7 +152,7 @@ app.factory('myService', function($q, $http) {
   function readBlogTxt(curr,total,blogDateArr,defs){
     var dateArr,year,month,day;
     if(curr < total){
-       dateArr = blogDateArr[i].split("-");
+       dateArr = blogDateArr[curr].split("-");
        year = dateArr[0];
        month = dateArr[1];
        day = dateArr[2];
@@ -161,7 +161,7 @@ app.factory('myService', function($q, $http) {
        $http.get(blogText).then(function(result) {
          console.log(result);
          defs[i].resolve(result.data);
-         readCatalog(++i, length, blogDateArr);
+         readCatalog(++curr, length, blogDateArr);
        });
 
     }
