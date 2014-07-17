@@ -143,7 +143,7 @@ function readCatalog(){
         promises[i] = defs[i].promise;
       }
 
-      readCatalog(0,blogDateArr.length,blogDateArr,defs);
+      readBlogTxt(0,blogDateArr.length,blogDateArr,defs);
 
       $q.all(promises).then(function(datas) {
           deferred.resolve(datas);
