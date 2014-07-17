@@ -101,8 +101,7 @@ Jimmy Shum's Personal Website
 </div>
 <div class="column">
 <div id="main">
-<div id="blog">
-<p ng-repeat="data in datas">{{data}}</p>
+<div ng-bind-html="blog">
 </div>
 
 
@@ -116,7 +115,7 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope, myService) {
   myService.get().then(function(datas) {
-    $scope.datas = datas;
+    $scope.blog = datas;
   });
 });
 
