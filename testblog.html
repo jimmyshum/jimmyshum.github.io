@@ -101,8 +101,7 @@ Jimmy Shum's Personal Website
 </div>
 <div class="column">
 <div id="main">
-<div id="blog">
-{{data}}
+<div ng-bind-html ="blog">
 </div>
 
 
@@ -112,11 +111,11 @@ Jimmy Shum's Personal Website
 
 
 <script type="text/javascript">
-var app = angular.module('myApp');
+var app = angular.module('myApp',[]);
 
 app.controller('myCtrl',  function($scope,myService) {
   myService.get().then(function(datas) {
-    $scope.data = datas;
+    $scope.blog = datas;
   });
 });
 
