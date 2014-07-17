@@ -114,11 +114,11 @@ Jimmy Shum's Personal Website
 <script type="text/javascript">
 var app = angular.module('myApp', ['ngSanitize']);
 
-app.controller('myCtrl', ['$scope', '$sce', function($scope,$sce,myService) {
+app.controller('myCtrl',  function($scope,$sce,myService) {
   myService.get().then(function(datas) {
     $scope.blog = $sce.trustAsHtml(datas);
   });
-}]);
+});
 
 app.factory('myService', function($q, $http) {
   var myService = {
