@@ -154,9 +154,9 @@ app.factory('myService', function($q, $http) {
        year = dateArr[0];
        month = dateArr[1];
        day = dateArr[2];
-       var url = '/blog/'+year+'/'month+'-'+day+'.txt';
+       var blogText = '/blog/'+year+'/'+month+'-'+day+'.txt';
 
-       $http.get(url).then(function(result) {
+       $http.get(blogText).then(function(result) {
          alert(result);
          defs[i].resolve(result.data);
          readCatalog(++i, length, blogDateArr);
