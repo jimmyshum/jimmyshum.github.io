@@ -123,7 +123,7 @@ app.controller('myCtrl', function($scope, myService) {
 app.factory('myService', function($q, $http) {
   var myService = {
     get: function(){
-        var deferred = $q.defer;
+        var deferred = $q.defer();
         $http.get('/blog/catalog/txt')
           .then(function(result){
             var cat = result;
