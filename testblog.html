@@ -160,7 +160,16 @@ app.factory('myService', function($q, $http) {
 
        $http.get(blogText).then(function(result) {
          console.log(result);
-         defs[curr].resolve(result.data);
+
+         var lineArr = result.data.split('\n');
+         var line = "<h2>" + day + "-" + month + "-" + year + "</h2>" + "<br/><br/>";
+
+         for(int i=0;i<lineArr.length;i++){
+            line += lineArr[i] + "<br/>" + '\n';
+         }
+         line += "<br/><br/><br/>";
+
+         defs[curr].resolve(line);
          readBlogTxt(++curr,total, blogDateArr,defs);
        });
 
