@@ -118,7 +118,7 @@ app.controller('myCtrl',  function($scope,$sce, myService) {
   //$scope.blog = "123";
   myService.get().then(function(datas) {
     console.log(datas);
-    $scope.blog = $sce.trustAsHtml(datas);
+    $scope.blog = $sce.trustAsHtml(datas+"");
   });
 });
 
